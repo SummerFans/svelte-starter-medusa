@@ -5,17 +5,24 @@ export const prerender = true;
 
 export const entries: EntryGenerator = async (): Promise<any> => {
 
-  return []
+  return [{
+    country:'us',
+    handle:"xxxx",
+    variants:'aaa'
+  }]
 }
 
 export const load: PageServerLoad = async ({ params }) => {
 
   const { country, handle, variants } = params;
 
-  const product = null
+  const product = {
+    handle
+  }
 
   if (product) {
     return {
+      product,
       country,
       handle
     }

@@ -5,7 +5,11 @@ export const prerender = true;
 
 export const entries: EntryGenerator = async (): Promise<any> => {
 
-  return []
+  return [{
+    country:'us',
+    category_handle:'a/b/c',
+    page:'1'
+  }]
 }
 
 export const load: PageServerLoad = async ({ params }) => {
