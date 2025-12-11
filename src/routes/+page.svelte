@@ -1,5 +1,8 @@
 <script lang="ts">
-  const url = import.meta.env.MEDUSA_BACKEND_URL||'none';
+	import { page } from '$app/state';
+
+	const { url } = page.data;
 </script>
+
 <h1>Welcome to SvelteKit</h1>
 <p>{url}</p>
