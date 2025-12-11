@@ -5,5 +5,5 @@
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>enable:prerender</p>
+<p>enable:prerender 001</p>
 <p>{url}</p>
