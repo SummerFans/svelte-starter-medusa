@@ -1,2 +1,5 @@
+<script lang="ts">
+  const url = import.meta.env.MEDUSA_BACKEND_URL||'none';
+</script>
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<p>{url}</p>
