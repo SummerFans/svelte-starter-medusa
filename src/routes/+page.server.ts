@@ -6,7 +6,7 @@ export const prerender = true;
 
 export const load: PageServerLoad = async () => {
   return {
-    url: MEDUSA_BACKEND_URL || 'none'
+    url: MEDUSA_BACKEND_URL || 'none2'
   }
 }
 
