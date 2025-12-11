@@ -8,7 +8,7 @@ export const entries: EntryGenerator = async (): Promise<any> => {
   return [{
     country:'us',
     handle:"xxxx",
-    variants:'aaa'
+    variants:'red/xl'
   }]
 }
 
