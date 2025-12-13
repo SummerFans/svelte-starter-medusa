@@ -7,7 +7,8 @@ import { paraglideMiddleware } from '$lib/paraglide/server';
 
 const handleParaglide: Handle = async ({ event, resolve }) => {
   
-  console.log(event.request)
+  const country = event.request.headers.get('cf-ipcountry')
+  console.log(country)
 
   // const regions = await listRegions()
   // const currentCountryCode = getCountryCode(event, countries).toLocaleLowerCase();
@@ -17,7 +18,7 @@ const handleParaglide: Handle = async ({ event, resolve }) => {
   // console.log(regions);
 
   if (event.url.pathname.split("/")[1] == '') {
-    throw redirect(302, `${PUBLIC_BASE_URL}/${DEFAULT_REGION}${event.url.pathname}`);
+    throw redirect(302, `${PUBLIC_BASE_URL}/${DEFAULT_REGION}${event.url.pathname}?c=${country}`);
 
     // 当前url和记录中的不存在
     // throw redirect(302, `${PUBLIC_BASE_URL}/${currentCountryCode}${event.url.pathname}`);
