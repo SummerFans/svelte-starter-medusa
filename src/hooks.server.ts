@@ -1,15 +1,20 @@
 import { DEFAULT_REGION } from '$env/static/private';
 import { PUBLIC_BASE_URL } from '$env/static/public';
-import { error, redirect, type Handle, type RequestEvent } from "@sveltejs/kit";
+import { redirect, type Handle } from "@sveltejs/kit";
 import { paraglideMiddleware } from '$lib/paraglide/server';
 
+// import { listRegions } from '$lib/data/regions'
 
 const handleParaglide: Handle = async ({ event, resolve }) => {
+  
+  console.log(event.request)
 
-
+  // const regions = await listRegions()
   // const currentCountryCode = getCountryCode(event, countries).toLocaleLowerCase();
 
   // const urlHasCountryCode = currentCountryCode && event.url.pathname.split("/")[1].includes(currentCountryCode)
+
+  // console.log(regions);
 
   if (event.url.pathname.split("/")[1] == '') {
     throw redirect(302, `${PUBLIC_BASE_URL}/${DEFAULT_REGION}${event.url.pathname}`);
