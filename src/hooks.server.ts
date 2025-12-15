@@ -25,8 +25,7 @@ const getRegionMap = async (cacheId: string): Promise<Map<string, HttpTypes.Stor
 				'x-publishable-api-key': MEDUSA_PUBLISHABLE_KEY,
 				'cache-Tag': `regions-${cacheId}`,
 				'cache-control': 'public, max-age=3600, stale-while-revalidate=86400'
-			},
-			cache: 'force-cache'
+			}
 		}).then(async (response) => {
 			const json = await response.json();
 
