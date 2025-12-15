@@ -1,6 +1,6 @@
 import { DEFAULT_REGION, MEDUSA_BACKEND_URL, MEDUSA_PUBLISHABLE_KEY } from '$env/static/private';
 import { PUBLIC_BASE_URL } from '$env/static/public';
-import { error, redirect, type Handle, type RequestEvent } from '@sveltejs/kit';
+import { redirect, type Handle, type RequestEvent } from '@sveltejs/kit';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 
 const regionMapCache = {
@@ -136,9 +136,10 @@ const handleParaglide: Handle = async ({ event, resolve }) => {
 	} else if (!urlHasCountryCode && !countryCode) {
 		// Handle case where no valid country code exists (empty regions)
 		// 处理不存在有效国家代码的情况（空区域）
-		throw error(500, {
-			message: 'Authentication required to access this resource.'
-		});
+		// throw error(500, {
+		// 	message: 'Authentication required to access this resource.'
+		// });
+    throw redirect(307, `${event.url.origin}/${countryCode}${redirectPath}${queryString}?=1`);
 	}
 
 	return paraglideMiddleware(event.request, ({ request: localizedRequest, locale }) => {
